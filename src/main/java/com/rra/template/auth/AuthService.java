@@ -1,5 +1,9 @@
 package com.rra.template.auth;
 
+import com.rra.template.auth.dtos.LoginRequestDTO;
+import com.rra.template.auth.dtos.LoginResponseDTO;
+import com.rra.template.user.User;
+import com.rra.template.user.UserRepository;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
@@ -14,6 +18,7 @@ import java.util.UUID;
 @Service
 @AllArgsConstructor
 public class AuthService {
+
     private final AuthenticationManager authenticationManager;
     private final UserRepository userRepository;
     private final JwtService jwtService;
@@ -67,4 +72,3 @@ public class AuthService {
 //UserRepository: Custom interface for accessing user data from the database.
 //
 //JwtService: A custom service that handles JWT token creation and validation.
-

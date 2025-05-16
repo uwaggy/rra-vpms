@@ -1,10 +1,12 @@
 package com.rra.template.auth.dtos;
 
+import com.rra.template.commons.validation.ValidRwandaId;
+import com.rra.template.commons.validation.ValidRwandanPhoneNumber;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-public record RegisterRequestDTO (
+public record RegisterRequestDTO(
         @NotBlank(message = "First name is required")
         @Size(min = 3, max = 50, message = "First name must be between 2 and 50 characters long")
         String firstName,
@@ -29,6 +31,3 @@ public record RegisterRequestDTO (
         String password
 ) {
 }
-
-
-

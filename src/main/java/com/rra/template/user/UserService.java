@@ -1,15 +1,32 @@
 package com.rra.template.user;
 
+// Importing the DTO for user registration requests
+import com.rra.template.auth.dtos.RegisterRequestDTO;
+
+// Custom exception to be thrown in case of a bad request
+import com.rra.template.commons.exceptions.BadRequestException;
+
+// DTO for formatting the response data when returning user info
+import com.rra.template.user.dtos.UserResponseDTO;
+
+// Mapper interface for converting between DTOs and User entity
+import com.rra.template.user.mappers.UserMapper;
+
+// Lombok annotation to generate a constructor with all fields
 import lombok.AllArgsConstructor;
+
+// Lombok annotation to enable logging (Slf4j)
 import lombok.extern.slf4j.Slf4j;
+
+// Marks the class as a Spring service component (bean)
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-@Service
-@AllArgsConstructor
-@Slf4j
-
+@Service // This tells Spring to manage this class as a service component
+@AllArgsConstructor // Lombok will generate a constructor injecting all final fields
+@Slf4j // Enables the use of the log object to log messages
 public class UserService {
+
     // Repository for accessing and managing User data in the database
     private final UserRepository userRepository;
 

@@ -1,6 +1,6 @@
 package com.rra.template.auth.dtos;
 
-public record LoginResponseDTO (
+public record LoginResponseDTO(
         String accessToken
-){
+) {
 }

@@ -3,7 +3,7 @@ package com.rra.template;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = "com.vanessa")
+@SpringBootApplication(scanBasePackages = "com.rra")
 public class SpringNeTemplateApplication {
 
     public static void main(String[] args) {

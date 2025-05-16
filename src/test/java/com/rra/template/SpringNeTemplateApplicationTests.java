@@ -1,4 +1,4 @@
-package com.vanessa.template;
+package com.rra.template;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

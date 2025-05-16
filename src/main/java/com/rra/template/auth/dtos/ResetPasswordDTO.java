@@ -14,6 +14,7 @@ public record ResetPasswordDTO (
 
         @Size(min = 8, max = 50, message = "Password must be at least 8 characters long")
         String newPassword
-){
 
-}
+){}
+
+
