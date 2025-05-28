@@ -34,12 +34,13 @@ public class RwandaNationalIdValidator implements ConstraintValidator<ValidRwand
      * Regular expression pattern for validating the structure of a Rwandan National ID.
      * The pattern captures 6 groups corresponding to the 6 functional components of the ID.
      */
-    private static final String ID_PATTERN = "^(\\d)(\\d{4})([78])(\\d{7})(\\d)(\\d{2})$";
+    private static final String ID_PATTERN =
+            "^(1)(\\d{4})(\\d)(\\d{7})(\\d)(\\d{2})$";
+
     private static final Pattern PATTERN = Pattern.compile(ID_PATTERN);
 
     /** Current year used for validating the birth year */
     private static final int CURRENT_YEAR = Year.now().getValue();
-
 
     private static final int MIN_ISSUANCE_AGE = 16;
     private static final int MAX_ISSUANCE_AGE = 120;
@@ -101,10 +102,17 @@ public class RwandaNationalIdValidator implements ConstraintValidator<ValidRwand
             return false;
         }
 
-        // Validate the security code digits.
+        // Validate the issue frequency digit.
         if(!isValidIssueFrequency(issueFrequencyDigit)){
             context.disableDefaultConstraintViolation();
             context.buildConstraintViolationWithTemplate("Invalid issue frequency on the ID").addConstraintViolation();
+            return false;
+        }
+
+        // Validate the security code digits.
+        if(!isValidSecurityCode(securityCodeDigits)){
+            context.disableDefaultConstraintViolation();
+            context.buildConstraintViolationWithTemplate("Invalid security code on the ID").addConstraintViolation();
             return false;
         }
 

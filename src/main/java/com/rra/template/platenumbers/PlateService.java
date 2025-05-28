@@ -29,7 +29,7 @@ public class PlateService {
         plate.setVehicle(null);
 
         plateRepository.save(plate);
-        return plateMapper.toResponse(plate);
+        return plateMapper.toResponse(plate);   
     }
 
     public List<PlateResponseDTO> getAllPlates() {

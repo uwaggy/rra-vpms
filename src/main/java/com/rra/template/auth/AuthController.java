@@ -23,7 +23,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 // Base URL path for all endpoints in this controller
 @RequestMapping("/auth")
-public class AuthController {
+public class    AuthController {
 
     // Inject services used in the authentication process
     private final AuthService authService;
